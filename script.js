@@ -5,8 +5,6 @@ const collisionSound = new Audio('collision.mp3');
 const pointearnedSound = new Audio('point_earned.mp3');
 const carskidSound = new Audio('car skid.mp3');
 
-backgroundMusic.play();
-
 // Set initial position of the car to the center of the game container
 const containerWidth = gameContainer.offsetWidth;
 const containerHeight = gameContainer.offsetHeight;
@@ -29,6 +27,8 @@ scoreCounter.style.position = 'absolute';
 scoreCounter.style.top = '20px';
 scoreCounter.style.left = '20px';
 document.body.appendChild(scoreCounter);
+
+backgroundMusic.play();
 
 let score = 0;
 let obstacleInterval = 2000; // Initial interval between obstacle spawns (in milliseconds)
