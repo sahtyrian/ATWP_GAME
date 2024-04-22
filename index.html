@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATWP Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="background-music" loop autoplay>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+    
+    <audio id="collision-sound" src="collision.mp3"></audio>
+    <audio id="point-earned-sound" src="point_earned.mp3"></audio>
+    <audio id="car-skid-sound" src="car skid.mp3"></audio>
+
+    
+    <div id="background-wrapper">
+        <div id="background"></div>
+        <div id="background2"></div>
+    </div>
+    <div id="game-container">
+        <img id="car" src="car_image.png">
+    </div>
+    <div id="score-counter">Score:  </div> <!-- Add the score counter element here -->
+    <script>
+        // JavaScript code for scrolling the background
+        const background = document.getElementById('background');
+        const background2 = document.getElementById('background2');
+
+        let xPos = 0;
+        let lastScrollTime = Date.now(); // Initialize last scroll time
+        const scrollSpeed = 250; // Adjust scroll speed as needed
+
+        function scrollBackground() {
+            const currentTime = Date.now();
+            const timeDiff = currentTime - lastScrollTime;
+            const distance = scrollSpeed * (timeDiff / 1000); // Calculate distance based on elapsed time
+
+            xPos -= distance;
+            background.style.backgroundPosition = `${xPos}px 0`;
+            background2.style.backgroundPosition = `${xPos + background.offsetWidth}px 0`; // Update position of the second background
+
+            // Check if the first background image is fully scrolled
+            if (xPos <= -background.offsetWidth) {
+                xPos += background.offsetWidth; // Reset xPos to continue scrolling
+            }
+
+            lastScrollTime = currentTime; // Update last scroll time
+        }
+
+        // Scroll the background continuously
+        setInterval(scrollBackground, 40); // Adjust the interval as needed for smooth scrolling
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
