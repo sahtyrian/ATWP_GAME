@@ -5,6 +5,7 @@ const collisionSound = new Audio('collision.mp3');
 const pointearnedSound = new Audio('point_earned.mp3');
 const carskidSound = new Audio('car skid.mp3');
 
+backgroundMusic.play();
 
 // Set initial position of the car to the center of the game container
 const containerWidth = gameContainer.offsetWidth;
@@ -264,10 +265,7 @@ function checkCollision(car, obstacle, obstacleMoveInterval) {
         alert(`Game over! Your score is ${score}`);
         window.location.reload(); // Reload the game
     }
-}ds
-
-backgroundMusic.play();
-
+}
 
 
 
